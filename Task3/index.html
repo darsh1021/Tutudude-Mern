@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Greeting Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .boxes-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .box {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        #red {
+            background-color: #ff6b6b;
+        }
+        
+        #blue {
+            background-color: #4dabf7;
+        }
+        
+        #green {
+            background-color: #51cf66;
+        }
+        
+        #yellow {
+            background-color: #ffd43b;
+            color: #333;
+        }
+        
+        .input-section {
+            margin: 30px 0;
+        }
+        
+        input {
+            padding: 12px 15px;
+            width: 250px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4dabf7;
+        }
+        
+        button {
+            padding: 12px 25px;
+            background-color: #4dabf7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-left: 10px;
+        }
+        
+        button:hover {
+            background-color: #339af0;
+            transform: translateY(-2px);
+        }
+        
+        .instructions {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        @media (max-width: 768px) {
+            .boxes-container {
+                justify-content: center;
+            }
+            
+            .box {
+                width: 120px;
+                height: 120px;
+            }
+            
+            input {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            button {
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="greeting">Hello</h1>
+        
+        <div class="boxes-container">
+            <div class="box" id="red">Red</div>
+            <div class="box" id="blue">Blue</div>
+            <div class="box" id="green">Green</div>
+            <div class="box" id="yellow">Yellow</div>
+        </div>
+        
+        <div class="input-section">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button id="greetButton">Greet Me</button>
+        </div>
+        
+        <div class="instructions">
+            <p><strong>Instructions:</strong> Click on the colored boxes to change their background color. Enter your name and click the "Greet Me" button to personalize the greeting.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const greetingElement = document.getElementById('greeting');
+        const nameInput = document.getElementById('nameInput');
+        const greetButton = document.getElementById('greetButton');
+        const boxes = document.querySelectorAll('.box');
+        
+        // Add event listener to the greet button
+        greetButton.addEventListener('click', function() {
+            const userName = nameInput.value.trim();
+            
+            if (userName) {
+                greetingElement.textContent = `Hello, ${userName}!`;
+                greetingElement.style.color = '#4dabf7';
+            } else {
+                greetingElement.textContent = 'Please enter your name!';
+                greetingElement.style.color = '#ff6b6b';
+                
+                // Reset after 2 seconds
+                setTimeout(() => {
+                    greetingElement.textContent = 'Hello';
+                    greetingElement.style.color = '#333';
+                }, 2000);
+            }
+        });
+        
+        // Add event listeners to the boxes
+        boxes.forEach(box => {
+            box.addEventListener('click', function() {
+                // Get the color name from the box text
+                const colorName = this.textContent.toLowerCase();
+                
+                // Change the background color to the actual color
+                switch(colorName) {
+                    case 'red':
+                        this.style.backgroundColor = '#ff0000';
+                        break;
+                    case 'blue':
+                        this.style.backgroundColor = '#0000ff';
+                        break;
+                    case 'green':
+                        this.style.backgroundColor = '#008000';
+                        break;
+                    case 'yellow':
+                        this.style.backgroundColor = '#ffff00';
+                        break;
+                }
+                
+                // Add a visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+        
+        // Allow pressing Enter to trigger the greeting
+        nameInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                greetButton.click();
+            }
+        });
+    </script>
+</body>
+</html>

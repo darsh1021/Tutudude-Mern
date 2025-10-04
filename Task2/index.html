@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshFold Laundry Service</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            overflow: hidden; /* Prevent scrolling */
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5vw;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2a9d8f;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #2a9d8f;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: #2a9d8f;
+        }
+        
+        /* Hero section styles */
+        .hero-section {
+            display: flex;
+            height: calc(100vh - 80px); /* Full viewport minus navbar height */
+            padding: 0 5vw;
+            align-items: center;
+        }
+        
+        .hero-left {
+            flex: 1;
+            padding-right: 3rem;
+        }
+        
+        .hero-left h1 {
+            font-size: 3.5rem;
+            color: #264653;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-left p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cta-button {
+            background-color: #2a9d8f;
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(42, 157, 143, 0.3);
+        }
+        
+        .cta-button:hover {
+            background-color: #21867a;
+            transform: translateY(-2px);
+        }
+        
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 2rem;
+            }
+            
+            .hero-left {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-left h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none; /* Hide nav links on small screens for simplicity */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">FreshFold</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="user-name">Hello, Sarah!</div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-left">
+            <h1>Professional Laundry & Dry Cleaning Services</h1>
+            <p>We take care of your laundry needs with care and precision. Our eco-friendly processes ensure your clothes are clean, fresh, and ready to wear. Schedule a pickup today!</p>
+            <button class="cta-button">Book a Service Today</button>
+        </div>
+        <div class="hero-right">
+            <!-- Using a placeholder image from a free service -->
+            <img src="https://images.unsplash.com/photo-1582735689369-4fe89db7114c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Laundry Service" class="hero-image">
+        </div>
+    </section>
+</body>
+</html>
