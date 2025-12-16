@@ -1,0 +1,19 @@
+.navbar{
+    display: flex;
+}
+.navbar ul{
+    display: flex;
+}
+
+.navbar li{
+    display: flex;
+    padding: 10px;
+}
+
+#home{
+    display: flex;
+    margin-bottom:10px;
+}
+.left, .right {
+  width: 45%;                  
+}
